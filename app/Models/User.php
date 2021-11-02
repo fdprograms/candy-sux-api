@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use \Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens,SoftDeletes,HasFactory, Notifiable;
+    //SoftDeletes
+    use HasApiTokens,HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +23,8 @@ class User extends Authenticatable
         'uuid',
         'name',
         'email',
+        'firstname',
+        'lastname',
         'password',
         'company_id'
     ];
@@ -63,5 +68,15 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'roles_users');
+    }
+
+    /**
+     * generateToken.
+     *
+     * @return void
+     */
+    public function generateToken() : string
+    {
+        return $this->createToken(Str::random(5) . '-oauth-test')->accessToken;
     }
 }
