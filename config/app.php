@@ -125,6 +125,35 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Support Email
+    |--------------------------------------------------------------------------
+    |
+    | This value is used in AdminUserSeed
+    */
+    'support_email' => env('APP_SUPPORT_EMAIL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Password Admin
+    |--------------------------------------------------------------------------
+    |
+    | This value is used in AdminUserSeed
+    */
+    'password' => env('APP_PASSWORD'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Passport Client Id
+    |--------------------------------------------------------------------------
+    |
+    | The passport id for internal auth
+    */
+    'passport_id' => env('APP_PASSPORT_CLIENT_ID'),
+    'passport_secret' => env('APP_PASSPORT_CLIENT_SECRET'),
+    'passport_api' => env('APP_AUTH_API'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
