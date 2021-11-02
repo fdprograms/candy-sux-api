@@ -24,3 +24,7 @@ Route::post('/login', [Controllers\AuthController::class, 'login']);
 Route::get('/status', function () {
     return 'OK';
 });
+
+Route::prefix('admin')->middleware(['auth:api'])->group(function () {
+    Route::resource('users', Controllers\UserController::class);
+});
