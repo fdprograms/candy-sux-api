@@ -57,6 +57,7 @@ services:
 volumes:
   db-data:
   redis:
+  s3data:
 
 networks:
   candy-suxxx:

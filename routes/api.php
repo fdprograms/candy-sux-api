@@ -27,4 +27,5 @@ Route::get('/status', function () {
 
 Route::prefix('admin')->middleware(['auth:api'])->group(function () {
     Route::resource('users', Controllers\UserController::class);
+    Route::resource('videos', Controllers\VideoController::class);
 });
